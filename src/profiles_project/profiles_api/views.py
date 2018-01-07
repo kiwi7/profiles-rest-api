@@ -34,6 +34,6 @@ class HelloApiView(APIView):
              name = serializer.data.get('name')
              message = 'Hello {0}'.format(name)
              return Response({'message': message})
-        else:
+         else:
             return Response(
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
