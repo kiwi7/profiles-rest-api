@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 # Create your views here.
 
- class HelloApiView(APIView):
+class HelloApiView(APIView):
      """Test APIView."""
 
      def get(self, request, format=None):
@@ -19,6 +19,6 @@ from rest_framework.response import Response
          ]
 
          return Response({
-         'message': 'Hello!', 
+         'message': 'Hello!',
          'an_apiview': an_apiview
          })
