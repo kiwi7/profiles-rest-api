@@ -5,7 +5,7 @@ from django.contrib.auth.models import BaseUserManager
 
 # Create your models here.
 
-class UserProfileManager(BaseUserManager)
+class UserProfileManager(BaseUserManager):
     """Helps Django work with our custom user model"""
 
     def create_user(self, email, name, password=None):
@@ -33,12 +33,12 @@ class UserProfileManager(BaseUserManager)
         user.save(using=self._db)
 
         return user
-        
 
-class UserProfile(AbstractBaseUser, PermissionsMixin)
+
+class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Represents a "user_Profile" inside course example project"""
 
-    email = models.EmailsField(max_length=255, unique=True)
+    email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
