@@ -8,3 +8,5 @@ pip install djangorestframework==3.6.2
 cd /vagrant/src/profiles_project
 python manage.py makemigrations
 python manage.py migrate
+
+python manage.py createsuperuser
