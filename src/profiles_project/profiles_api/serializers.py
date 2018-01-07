@@ -21,7 +21,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
          """Create and return new user"""
 
          user = models.UserProfile(
-            email=validated_data['email']
+            email=validated_data['email'],
             name=validated_data['name']
          )
 
