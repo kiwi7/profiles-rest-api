@@ -131,3 +131,15 @@ class LoginViewSet(viewsets.ViewSet):
          """Use the ObtainAuthToken APIView to validate and create a token."""
 
          return ObtainAuthToken().post(request)
+
+class UserProfileFeedViewSet(viewsets.ModelViewSet):
+     """Handles creating and updating profile feed items."""
+
+     authentication_classes = (TokenAuthentication,) # tuple immutable
+     serializer_class = serializers.ProfileFeedItemSerializer
+     queryset = models.ProfileFeedItem.objects.all()
+
+     def perform_create(self, serializer):
+         """Set the user profile to the logged in user."""
+
+         serializer.save(user_profile=self.request.user)
